@@ -33,7 +33,8 @@ function showQuestion() {
     const newButton = document.createElement("button");
     newButton.textContent = option;
     newButton.className = "option";
-    newButton.onclick = checkAnswer(index);
+    newButton.onclick = ()=>checkAnswer(index);
+    newButton.disabled = false;
     optionsContainer.appendChild(newButton);
 });
 }
@@ -59,7 +60,7 @@ function clearOptions() {
   while(optionsContainer.firstChild){
     optionsContainer.removeChild(optionsContainer.firstChild);
   }
-  nextBtn.style.display = "none";
+  nextBtn.disable = true;
 }
 
 nextBtn.addEventListener("click", () => {
