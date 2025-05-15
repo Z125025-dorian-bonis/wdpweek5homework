@@ -110,20 +110,15 @@
     const div = document.getElementById("quoteBox");
     var myVar;
 
-    function myFunction() {
-      myVar = setTimeout(showPage, 3000);
-    }
-    
-    function showPage() {
-      document.getElementById("loader").style.display = "none";
-      div.style.display = "block";
+    function load() {
+      document.getElementById("loader").style.display = "block";
+      div.style.display = "none";
+      myVar = setTimeout(getQuote, 1000);
     }
     
     function getQuote() {
     document.getElementById("loader").style.display = "none";
-    div.style.display = "none";
-    myFunction();
-      showPage();
+    div.style.display = "block";
       //INPUT YOUR CODE HERE
       //HINT: Use fetch() to get quote from "quotes.json"
     fetch("quotes.json")
@@ -138,8 +133,8 @@
           console.error("Fetch error:",error);
         });
     }
-    newQuoteBtn.addEventListener("click", getQuote);
-    getQuote(); // Load a quote on page load
+    newQuoteBtn.addEventListener("click", load);
+    load(); // Load a quote on page load
   </script>
 
 </body>
